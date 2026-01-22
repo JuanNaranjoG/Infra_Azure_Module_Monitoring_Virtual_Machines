@@ -1,0 +1,32 @@
+# Carpetas generadas por Terraform
+.terraform/
+.terraform.lock.hcl
+
+# Archivos de estado (contienen información sensible)
+terraform.tfstate
+terraform.tfstate.backup
+
+# Archivos de variables opcionales o sensibles
+
+
+
+# Archivos de salida o logs
+crash.log
+*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ejecutables y binarios
+*.exe
+*.zip
+*.tar.gz
+
+# Archivos temporales o de IDEs
+.vscode/
+.idea/
+*.swp
+*.bak
+*.tmp
