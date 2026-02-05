@@ -1,3 +1,5 @@
+data "azurerm_client_config" "current" {}
+
 locals {
   # Base del nombre para todas las alarmas
   alarm_name_base = "${var.project}-${var.bdo_name_service}-${var.bdo_environment}"
@@ -20,4 +22,13 @@ locals {
 
   # Set de VMs seleccionadas (manual)
   selected_vms = toset(var.vm_names)
+
+ # Construcción de Resource IDs para las VMs
+  vm_resource_ids = {
+    for vm in local.selected_vms :
+    vm => "/subscriptions/${data.azurerm_client_config.current.subscription_id}/resourceGroups/${var.resource_group_name}/providers/Microsoft.Compute/virtualMachines/${vm}"
+  }
+
+
+
 }
